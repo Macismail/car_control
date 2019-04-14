@@ -38,10 +38,6 @@ public class CarClient implements ServiceObserver {
       return serviceType;
    }
 
-   void disable() {
-      // no services exist for this client type
-   }
-
    public List<String> serviceInterests() {
       List<String> interests = new ArrayList<String>();
       interests.add(serviceType);
