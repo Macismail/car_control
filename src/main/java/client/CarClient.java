@@ -26,8 +26,8 @@ public class CarClient implements ServiceObserver {
     * Constructor.
     */
    public CarClient() {
-      serviceType = "_window._udp.local.";
-      name = "Home";
+      serviceType = "_windows._up.local.";
+      name = "Car";
       jmDNSServiceTracker clientManager = jmDNSServiceTracker.getInstance();
       clientManager.register(this);
 
@@ -49,13 +49,13 @@ public class CarClient implements ServiceObserver {
    }
 
    public void serviceAdded(ServiceDescription service) {
-      System.out.println("service added");
+      System.out.println("Start service");
       current = service;
       channel = ManagedChannelBuilder.forAddress(service.getAddress(), service.getPort())
               .usePlaintext(true)
               .build();
       blockingStub = CarGrpc.newBlockingStub(channel);
-      openwindow();
+      closewindows();
    }
 
    public boolean interested(String type) {
@@ -71,16 +71,16 @@ public class CarClient implements ServiceObserver {
    }
 
    /**
-    * Open the window.
+    * Close the car windows method.
     */
-   public void openwindow() {
+   public void closewindows() {
       try {
 
          new Thread() {
             public void run() {
                Empty request = Empty.newBuilder().build();
 
-               Iterator<WindowStatus> response = blockingStub.open(request);
+               Iterator<WindowStatus> response = blockingStub.close(request);
                while (response.hasNext()) {
                   System.out.println(response.next().toString());
                }
@@ -89,7 +89,7 @@ public class CarClient implements ServiceObserver {
 
          Empty request = Empty.newBuilder().build();
          WindowStatus status = blockingStub.getStatus(request);
-         System.out.println("Opening the window " + status);
+         System.out.println("Closing the window " + status);
 
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);

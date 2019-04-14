@@ -1,11 +1,1 @@
-org/dominic/example/recommender/RecommendationsOrBuilder.class
-org/dominic/example/recommender/ProfileOrBuilder.class
-org/dominic/example/recommender/Recommendations.class
-org/mycompany/example/recommender/RecommenderClient.class
-org/dominic/example/recommender/Recommendations$Builder.class
-org/dominic/example/recommender/RecommenderProto.class
-org/dominic/example/recommender/RecommenderProto$1.class
-org/dominic/example/recommender/Recommendations$1.class
-org/dominic/example/recommender/Movie$Builder.class
-org/dominic/example/recommender/Movie$1.class
-org/dominic/example/recommender/Movie.class
+org/mycompany/example/car/LockDoorsOrBuilder.class

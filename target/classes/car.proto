@@ -10,11 +10,15 @@ option java_outer_classname = "CarProto";
 
 // The greeting service definition.
 service Car {
-    rpc Open(google.protobuf.Empty) returns (stream WindowStatus) {}
+    rpc Locking(google.protobuf.Empty) returns (LockDoors) {}
     rpc Close(google.protobuf.Empty) returns (stream WindowStatus) {}
     rpc getStatus(google.protobuf.Empty) returns (WindowStatus) {}
 }
 
 message WindowStatus {
   int32 percentage = 1;
+}
+
+message LockDoors {
+  string lock = 1;
 }

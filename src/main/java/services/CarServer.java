@@ -47,7 +47,7 @@ public class CarServer {
    }
 
    /**
-    * Await termination on the main thread since the grpc library uses
+    * Await termination on the main thread since the GRPC library uses
     * daemon threads.
     */
    private void blockUntilShutdown() throws InterruptedException {
@@ -75,11 +75,10 @@ public class CarServer {
       }
 
       @Override
-      public void open(com.google.protobuf.Empty request,
+      public void close(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
          Timer t = new Timer();
          t.schedule(new RemindTask(responseObserver), 0, 2000);
-
       }
 
       @Override
@@ -99,8 +98,8 @@ public class CarServer {
 
          @Override
          public void run() {
-            if (winlevel < 10) {
-               winlevel += 1;
+            if (winlevel < 100) {
+               winlevel += 10;
                WindowStatus status = WindowStatus.newBuilder().setPercentage(winlevel).build();
                stOb.onNext(status);
             } else {

@@ -19,6 +19,11 @@ public final class CarProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_window_WindowStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_window_LockDoors_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_window_LockDoors_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30,12 +35,13 @@ public final class CarProto {
     java.lang.String[] descriptorData = {
       "\n\tcar.proto\022\006window\032\033google/protobuf/emp" +
       "ty.proto\"\"\n\014WindowStatus\022\022\n\npercentage\030\001" +
-      " \001(\0052\267\001\n\003Car\0228\n\004Open\022\026.google.protobuf.E" +
-      "mpty\032\024.window.WindowStatus\"\0000\001\0229\n\005Close\022" +
-      "\026.google.protobuf.Empty\032\024.window.WindowS" +
-      "tatus\"\0000\001\022;\n\tgetStatus\022\026.google.protobuf" +
-      ".Empty\032\024.window.WindowStatus\"\000B\'\n\031org.my" +
-      "company.example.carB\010CarProtoP\001b\006proto3"
+      " \001(\005\"\031\n\tLockDoors\022\014\n\004lock\030\001 \001(\t2\265\001\n\003Car\022" +
+      "6\n\007Locking\022\026.google.protobuf.Empty\032\021.win" +
+      "dow.LockDoors\"\000\0229\n\005Close\022\026.google.protob" +
+      "uf.Empty\032\024.window.WindowStatus\"\0000\001\022;\n\tge" +
+      "tStatus\022\026.google.protobuf.Empty\032\024.window" +
+      ".WindowStatus\"\000B\'\n\031org.mycompany.example" +
+      ".carB\010CarProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -56,6 +62,12 @@ public final class CarProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_window_WindowStatus_descriptor,
         new java.lang.String[] { "Percentage", });
+    internal_static_window_LockDoors_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_window_LockDoors_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_window_LockDoors_descriptor,
+        new java.lang.String[] { "Lock", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 
