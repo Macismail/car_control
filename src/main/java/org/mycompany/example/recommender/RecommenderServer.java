@@ -16,7 +16,7 @@ import org.dominic.example.recommender.Movie;
 import org.dominic.example.recommender.MovieRecommenderGrpc;
 import org.dominic.example.recommender.Profile;
 import org.dominic.example.recommender.Recommendations;
-import org.dominic.example.window.WindowStatus;
+import org.mycompany.example.car.WindowStatus;
 import services.JmDNSRegistrationHelper;
 
 public class RecommenderServer {
