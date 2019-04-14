@@ -31,38 +31,6 @@ public final class CarGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.mycompany.example.car.LockDoors> getLockingMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Locking",
-      requestType = com.google.protobuf.Empty.class,
-      responseType = org.mycompany.example.car.LockDoors.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.mycompany.example.car.LockDoors> getLockingMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.mycompany.example.car.LockDoors> getLockingMethod;
-    if ((getLockingMethod = CarGrpc.getLockingMethod) == null) {
-      synchronized (CarGrpc.class) {
-        if ((getLockingMethod = CarGrpc.getLockingMethod) == null) {
-          CarGrpc.getLockingMethod = getLockingMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.mycompany.example.car.LockDoors>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "window.Car", "Locking"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.mycompany.example.car.LockDoors.getDefaultInstance()))
-                  .setSchemaDescriptor(new CarMethodDescriptorSupplier("Locking"))
-                  .build();
-          }
-        }
-     }
-     return getLockingMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       org.mycompany.example.car.WindowStatus> getCloseMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -126,6 +94,38 @@ public final class CarGrpc {
      return getGetStatusMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.mycompany.example.car.ResultReply> getLockDoorsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "LockDoors",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.mycompany.example.car.ResultReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.mycompany.example.car.ResultReply> getLockDoorsMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.mycompany.example.car.ResultReply> getLockDoorsMethod;
+    if ((getLockDoorsMethod = CarGrpc.getLockDoorsMethod) == null) {
+      synchronized (CarGrpc.class) {
+        if ((getLockDoorsMethod = CarGrpc.getLockDoorsMethod) == null) {
+          CarGrpc.getLockDoorsMethod = getLockDoorsMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.mycompany.example.car.ResultReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "window.Car", "LockDoors"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.mycompany.example.car.ResultReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new CarMethodDescriptorSupplier("LockDoors"))
+                  .build();
+          }
+        }
+     }
+     return getLockDoorsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -158,13 +158,6 @@ public final class CarGrpc {
 
     /**
      */
-    public void locking(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.mycompany.example.car.LockDoors> responseObserver) {
-      asyncUnimplementedUnaryCall(getLockingMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void close(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
       asyncUnimplementedUnaryCall(getCloseMethod(), responseObserver);
@@ -177,15 +170,15 @@ public final class CarGrpc {
       asyncUnimplementedUnaryCall(getGetStatusMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void lockDoors(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getLockDoorsMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getLockingMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.google.protobuf.Empty,
-                org.mycompany.example.car.LockDoors>(
-                  this, METHODID_LOCKING)))
           .addMethod(
             getCloseMethod(),
             asyncServerStreamingCall(
@@ -200,6 +193,13 @@ public final class CarGrpc {
                 com.google.protobuf.Empty,
                 org.mycompany.example.car.WindowStatus>(
                   this, METHODID_GET_STATUS)))
+          .addMethod(
+            getLockDoorsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.mycompany.example.car.ResultReply>(
+                  this, METHODID_LOCK_DOORS)))
           .build();
     }
   }
@@ -227,14 +227,6 @@ public final class CarGrpc {
 
     /**
      */
-    public void locking(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.mycompany.example.car.LockDoors> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getLockingMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void close(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
       asyncServerStreamingCall(
@@ -247,6 +239,14 @@ public final class CarGrpc {
         io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetStatusMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void lockDoors(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getLockDoorsMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -273,13 +273,6 @@ public final class CarGrpc {
 
     /**
      */
-    public org.mycompany.example.car.LockDoors locking(com.google.protobuf.Empty request) {
-      return blockingUnaryCall(
-          getChannel(), getLockingMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public java.util.Iterator<org.mycompany.example.car.WindowStatus> close(
         com.google.protobuf.Empty request) {
       return blockingServerStreamingCall(
@@ -291,6 +284,13 @@ public final class CarGrpc {
     public org.mycompany.example.car.WindowStatus getStatus(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
           getChannel(), getGetStatusMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.mycompany.example.car.ResultReply lockDoors(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getLockDoorsMethod(), getCallOptions(), request);
     }
   }
 
@@ -317,24 +317,24 @@ public final class CarGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.LockDoors> locking(
-        com.google.protobuf.Empty request) {
-      return futureUnaryCall(
-          getChannel().newCall(getLockingMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.WindowStatus> getStatus(
         com.google.protobuf.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getGetStatusMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.ResultReply> lockDoors(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getLockDoorsMethod(), getCallOptions()), request);
+    }
   }
 
-  private static final int METHODID_LOCKING = 0;
-  private static final int METHODID_CLOSE = 1;
-  private static final int METHODID_GET_STATUS = 2;
+  private static final int METHODID_CLOSE = 0;
+  private static final int METHODID_GET_STATUS = 1;
+  private static final int METHODID_LOCK_DOORS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -353,10 +353,6 @@ public final class CarGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_LOCKING:
-          serviceImpl.locking((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<org.mycompany.example.car.LockDoors>) responseObserver);
-          break;
         case METHODID_CLOSE:
           serviceImpl.close((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus>) responseObserver);
@@ -364,6 +360,10 @@ public final class CarGrpc {
         case METHODID_GET_STATUS:
           serviceImpl.getStatus((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus>) responseObserver);
+          break;
+        case METHODID_LOCK_DOORS:
+          serviceImpl.lockDoors((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -426,9 +426,9 @@ public final class CarGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CarFileDescriptorSupplier())
-              .addMethod(getLockingMethod())
               .addMethod(getCloseMethod())
               .addMethod(getGetStatusMethod())
+              .addMethod(getLockDoorsMethod())
               .build();
         }
       }

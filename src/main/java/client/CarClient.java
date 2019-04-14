@@ -3,6 +3,7 @@ package client;
 import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
+import org.mycompany.example.car.ResultReply;
 import org.mycompany.example.car.WindowStatus;
 
 public class CarClient implements ServiceObserver {
@@ -17,7 +19,7 @@ public class CarClient implements ServiceObserver {
    protected ServiceDescription current;
    private final String serviceType;
    private final String name;
-   private static final Logger logger = Logger.getLogger(GRPCCarClient.class.getName());
+   private static final Logger logger = Logger.getLogger(CarClient.class.getName());
 
    private ManagedChannel channel;
    private CarGrpc.CarBlockingStub blockingStub;
@@ -85,12 +87,24 @@ public class CarClient implements ServiceObserver {
 
          Empty request = Empty.newBuilder().build();
          WindowStatus status = blockingStub.getStatus(request);
-         System.out.println("Closing the window " + status);
+         System.out.println("Closing windows " + status);
 
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);
          return;
       }
+
+      try {
+         
+         Empty request = Empty.newBuilder().build();
+         ResultReply response = blockingStub.lockDoors(request);
+         System.out.println(response);
+         
+      } catch (RuntimeException e) {
+         logger.log(Level.WARNING, "RPC failed: {0}", e);
+         return;
+      }
+      
    }
 
    public static void main(String[] args) {

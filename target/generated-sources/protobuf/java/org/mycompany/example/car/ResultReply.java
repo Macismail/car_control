@@ -4,19 +4,19 @@
 package org.mycompany.example.car;
 
 /**
- * Protobuf type {@code window.LockDoors}
+ * Protobuf type {@code window.ResultReply}
  */
-public  final class LockDoors extends
+public  final class ResultReply extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:window.LockDoors)
-    LockDoorsOrBuilder {
+    // @@protoc_insertion_point(message_implements:window.ResultReply)
+    ResultReplyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use LockDoors.newBuilder() to construct.
-  private LockDoors(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ResultReply.newBuilder() to construct.
+  private ResultReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private LockDoors() {
-    lock_ = "";
+  private ResultReply() {
+    message_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LockDoors(
+  private ResultReply(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            lock_ = s;
+            message_ = s;
             break;
           }
           default: {
@@ -70,45 +70,45 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mycompany.example.car.CarProto.internal_static_window_LockDoors_descriptor;
+    return org.mycompany.example.car.CarProto.internal_static_window_ResultReply_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mycompany.example.car.CarProto.internal_static_window_LockDoors_fieldAccessorTable
+    return org.mycompany.example.car.CarProto.internal_static_window_ResultReply_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mycompany.example.car.LockDoors.class, org.mycompany.example.car.LockDoors.Builder.class);
+            org.mycompany.example.car.ResultReply.class, org.mycompany.example.car.ResultReply.Builder.class);
   }
 
-  public static final int LOCK_FIELD_NUMBER = 1;
-  private volatile java.lang.Object lock_;
+  public static final int MESSAGE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object message_;
   /**
-   * <code>string lock = 1;</code>
+   * <code>string message = 1;</code>
    */
-  public java.lang.String getLock() {
-    java.lang.Object ref = lock_;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      lock_ = s;
+      message_ = s;
       return s;
     }
   }
   /**
-   * <code>string lock = 1;</code>
+   * <code>string message = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getLockBytes() {
-    java.lang.Object ref = lock_;
+      getMessageBytes() {
+    java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      lock_ = b;
+      message_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getLockBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, lock_);
+    if (!getMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getLockBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, lock_);
+    if (!getMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -154,14 +154,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mycompany.example.car.LockDoors)) {
+    if (!(obj instanceof org.mycompany.example.car.ResultReply)) {
       return super.equals(obj);
     }
-    org.mycompany.example.car.LockDoors other = (org.mycompany.example.car.LockDoors) obj;
+    org.mycompany.example.car.ResultReply other = (org.mycompany.example.car.ResultReply) obj;
 
     boolean result = true;
-    result = result && getLock()
-        .equals(other.getLock());
+    result = result && getMessage()
+        .equals(other.getMessage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,76 +173,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LOCK_FIELD_NUMBER;
-    hash = (53 * hash) + getLock().hashCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(byte[] data)
+  public static org.mycompany.example.car.ResultReply parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(java.io.InputStream input)
+  public static org.mycompany.example.car.ResultReply parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mycompany.example.car.LockDoors parseDelimitedFrom(java.io.InputStream input)
+  public static org.mycompany.example.car.ResultReply parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.LockDoors parseDelimitedFrom(
+  public static org.mycompany.example.car.ResultReply parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.LockDoors parseFrom(
+  public static org.mycompany.example.car.ResultReply parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mycompany.example.car.LockDoors prototype) {
+  public static Builder newBuilder(org.mycompany.example.car.ResultReply prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -271,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code window.LockDoors}
+   * Protobuf type {@code window.ResultReply}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:window.LockDoors)
-      org.mycompany.example.car.LockDoorsOrBuilder {
+      // @@protoc_insertion_point(builder_implements:window.ResultReply)
+      org.mycompany.example.car.ResultReplyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mycompany.example.car.CarProto.internal_static_window_LockDoors_descriptor;
+      return org.mycompany.example.car.CarProto.internal_static_window_ResultReply_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mycompany.example.car.CarProto.internal_static_window_LockDoors_fieldAccessorTable
+      return org.mycompany.example.car.CarProto.internal_static_window_ResultReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mycompany.example.car.LockDoors.class, org.mycompany.example.car.LockDoors.Builder.class);
+              org.mycompany.example.car.ResultReply.class, org.mycompany.example.car.ResultReply.Builder.class);
     }
 
-    // Construct using org.mycompany.example.car.LockDoors.newBuilder()
+    // Construct using org.mycompany.example.car.ResultReply.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      lock_ = "";
+      message_ = "";
 
       return this;
     }
@@ -316,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mycompany.example.car.CarProto.internal_static_window_LockDoors_descriptor;
+      return org.mycompany.example.car.CarProto.internal_static_window_ResultReply_descriptor;
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.LockDoors getDefaultInstanceForType() {
-      return org.mycompany.example.car.LockDoors.getDefaultInstance();
+    public org.mycompany.example.car.ResultReply getDefaultInstanceForType() {
+      return org.mycompany.example.car.ResultReply.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.LockDoors build() {
-      org.mycompany.example.car.LockDoors result = buildPartial();
+    public org.mycompany.example.car.ResultReply build() {
+      org.mycompany.example.car.ResultReply result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,9 +334,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.LockDoors buildPartial() {
-      org.mycompany.example.car.LockDoors result = new org.mycompany.example.car.LockDoors(this);
-      result.lock_ = lock_;
+    public org.mycompany.example.car.ResultReply buildPartial() {
+      org.mycompany.example.car.ResultReply result = new org.mycompany.example.car.ResultReply(this);
+      result.message_ = message_;
       onBuilt();
       return result;
     }
@@ -375,18 +375,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mycompany.example.car.LockDoors) {
-        return mergeFrom((org.mycompany.example.car.LockDoors)other);
+      if (other instanceof org.mycompany.example.car.ResultReply) {
+        return mergeFrom((org.mycompany.example.car.ResultReply)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mycompany.example.car.LockDoors other) {
-      if (other == org.mycompany.example.car.LockDoors.getDefaultInstance()) return this;
-      if (!other.getLock().isEmpty()) {
-        lock_ = other.lock_;
+    public Builder mergeFrom(org.mycompany.example.car.ResultReply other) {
+      if (other == org.mycompany.example.car.ResultReply.getDefaultInstance()) return this;
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -404,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mycompany.example.car.LockDoors parsedMessage = null;
+      org.mycompany.example.car.ResultReply parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mycompany.example.car.LockDoors) e.getUnfinishedMessage();
+        parsedMessage = (org.mycompany.example.car.ResultReply) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -418,71 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object lock_ = "";
+    private java.lang.Object message_ = "";
     /**
-     * <code>string lock = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public java.lang.String getLock() {
-      java.lang.Object ref = lock_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        lock_ = s;
+        message_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string lock = 1;</code>
+     * <code>string message = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getLockBytes() {
-      java.lang.Object ref = lock_;
+        getMessageBytes() {
+      java.lang.Object ref = message_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        lock_ = b;
+        message_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string lock = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder setLock(
+    public Builder setMessage(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      lock_ = value;
+      message_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string lock = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder clearLock() {
+    public Builder clearMessage() {
       
-      lock_ = getDefaultInstance().getLock();
+      message_ = getDefaultInstance().getMessage();
       onChanged();
       return this;
     }
     /**
-     * <code>string lock = 1;</code>
+     * <code>string message = 1;</code>
      */
-    public Builder setLockBytes(
+    public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      lock_ = value;
+      message_ = value;
       onChanged();
       return this;
     }
@@ -499,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:window.LockDoors)
+    // @@protoc_insertion_point(builder_scope:window.ResultReply)
   }
 
-  // @@protoc_insertion_point(class_scope:window.LockDoors)
-  private static final org.mycompany.example.car.LockDoors DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:window.ResultReply)
+  private static final org.mycompany.example.car.ResultReply DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mycompany.example.car.LockDoors();
+    DEFAULT_INSTANCE = new org.mycompany.example.car.ResultReply();
   }
 
-  public static org.mycompany.example.car.LockDoors getDefaultInstance() {
+  public static org.mycompany.example.car.ResultReply getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<LockDoors>
-      PARSER = new com.google.protobuf.AbstractParser<LockDoors>() {
+  private static final com.google.protobuf.Parser<ResultReply>
+      PARSER = new com.google.protobuf.AbstractParser<ResultReply>() {
     @java.lang.Override
-    public LockDoors parsePartialFrom(
+    public ResultReply parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LockDoors(input, extensionRegistry);
+      return new ResultReply(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<LockDoors> parser() {
+  public static com.google.protobuf.Parser<ResultReply> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<LockDoors> getParserForType() {
+  public com.google.protobuf.Parser<ResultReply> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mycompany.example.car.LockDoors getDefaultInstanceForType() {
+  public org.mycompany.example.car.ResultReply getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

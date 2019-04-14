@@ -1,1 +1,4 @@
-org/mycompany/example/car/LockDoorsOrBuilder.class
+org/mycompany/example/car/ResultReply.class
+org/mycompany/example/car/ResultReplyOrBuilder.class
+org/mycompany/example/car/ResultReply$1.class
+org/mycompany/example/car/ResultReply$Builder.class

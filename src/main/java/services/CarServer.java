@@ -9,6 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
+import org.mycompany.example.car.ResultReply;
 import org.mycompany.example.car.WindowStatus;
 
 /**
@@ -71,7 +72,7 @@ public class CarServer {
 
       public CarImpl() {
          String name = "Car";
-         String serviceType = "_window._udp.local.";
+         String serviceType = "_windows._up.local.";
       }
 
       @Override
@@ -90,10 +91,10 @@ public class CarServer {
 
       class RemindTask extends TimerTask {
 
-         StreamObserver<WindowStatus> stOb;
+         StreamObserver<WindowStatus> stmOb;
 
          public RemindTask(StreamObserver<WindowStatus> j) {
-            stOb = j;
+            stmOb = j;
          }
 
          @Override
@@ -101,12 +102,19 @@ public class CarServer {
             if (winlevel < 100) {
                winlevel += 10;
                WindowStatus status = WindowStatus.newBuilder().setPercentage(winlevel).build();
-               stOb.onNext(status);
+               stmOb.onNext(status);
             } else {
-               stOb.onCompleted();
+               stmOb.onCompleted();
                this.cancel();
             }
          }
       }
+
+      public void LockDoors(com.google.protobuf.Empty request, StreamObserver<ResultReply> responseObserver) {
+         ResultReply reply = ResultReply.newBuilder().setMessage("Doors locked").build();
+         responseObserver.onNext(reply);
+         responseObserver.onCompleted();
+      }
+
    }
 }
