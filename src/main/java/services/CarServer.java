@@ -69,6 +69,7 @@ public class CarServer {
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int winlevel = 0;
+      private String lock = "Locked !!!";
 
       public CarImpl() {
          String name = "Car";
@@ -91,7 +92,7 @@ public class CarServer {
       
       public void LockDoors(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply> responseObserver) {
-         responseObserver.onNext(ResultReply.newBuilder().setMessage("Locked !!!").build());
+         responseObserver.onNext(ResultReply.newBuilder().setMessage(lock).build());
          responseObserver.onCompleted();
       }
       
