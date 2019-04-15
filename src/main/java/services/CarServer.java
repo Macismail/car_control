@@ -88,7 +88,13 @@ public class CarServer {
          responseObserver.onNext(WindowStatus.newBuilder().setPercentage(winlevel).build());
          responseObserver.onCompleted();
       }
-
+      
+      public void LockDoors(com.google.protobuf.Empty request,
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply> responseObserver) {
+         responseObserver.onNext(ResultReply.newBuilder().setMessage("Locked !!!").build());
+         responseObserver.onCompleted();
+      }
+      
       class RemindTask extends TimerTask {
 
          StreamObserver<WindowStatus> stmOb;
@@ -108,12 +114,6 @@ public class CarServer {
                this.cancel();
             }
          }
-      }
-
-      public void LockDoors(com.google.protobuf.Empty request, StreamObserver<ResultReply> responseObserver) {
-         ResultReply reply = ResultReply.newBuilder().setMessage("Doors locked").build();
-         responseObserver.onNext(reply);
-         responseObserver.onCompleted();
       }
 
    }

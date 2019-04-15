@@ -19,7 +19,7 @@ public class CarClient implements ServiceObserver {
    protected ServiceDescription current;
    private final String serviceType;
    private final String name;
-   private static final Logger logger = Logger.getLogger(CarClient.class.getName());
+   private static final Logger logger = Logger.getLogger(GRPCCarClient.class.getName());
 
    private ManagedChannel channel;
    private CarGrpc.CarBlockingStub blockingStub;
@@ -54,6 +54,7 @@ public class CarClient implements ServiceObserver {
               .build();
       blockingStub = CarGrpc.newBlockingStub(channel);
       closewindows();
+      lockdrs();
    }
 
    public boolean interested(String type) {
@@ -94,17 +95,19 @@ public class CarClient implements ServiceObserver {
          return;
       }
 
+   }
+   
+   public void lockdrs(){
       try {
          
          Empty request = Empty.newBuilder().build();
-         ResultReply response = blockingStub.lockDoors(request);
-         System.out.println(response);
+         ResultReply res = blockingStub.lockDoors(request);
+         System.out.println("the "+res);
          
-      } catch (RuntimeException e) {
-         logger.log(Level.WARNING, "RPC failed: {0}", e);
+      } catch (StatusRuntimeException e) {
+         logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
          return;
       }
-      
    }
 
    public static void main(String[] args) {
