@@ -68,11 +68,12 @@ public class CarServer {
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int winlevel = 0;
-      private String lock = "Locked !!!";
+      private String lock;
 
       public CarImpl() {
          String name = "Car";
          String serviceType = "_windows._up.local.";
+         lock = "Locked !!!";
       }
 
       @Override
@@ -89,8 +90,7 @@ public class CarServer {
          responseObserver.onCompleted();
       }
       
-      public void LockDoors(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
+      public void LockDoors(com.google.protobuf.Empty request, io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
          responseObserver.onNext(WindowStatus.newBuilder().setLoc(lock).build());
          responseObserver.onCompleted();
       }
