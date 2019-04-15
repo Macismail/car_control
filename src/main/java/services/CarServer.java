@@ -9,7 +9,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
-import org.mycompany.example.car.ResultReply;
 import org.mycompany.example.car.WindowStatus;
 
 /**
@@ -91,8 +90,8 @@ public class CarServer {
       }
       
       public void LockDoors(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.ResultReply> responseObserver) {
-         responseObserver.onNext(ResultReply.newBuilder().setMessage(lock).build());
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
+         responseObserver.onNext(WindowStatus.newBuilder().setLoc(lock).build());
          responseObserver.onCompleted();
       }
       

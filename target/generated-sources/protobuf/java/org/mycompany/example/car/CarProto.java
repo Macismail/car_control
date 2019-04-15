@@ -19,11 +19,6 @@ public final class CarProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_window_WindowStatus_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_window_ResultReply_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_window_ResultReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,14 +29,14 @@ public final class CarProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\tcar.proto\022\006window\032\033google/protobuf/emp" +
-      "ty.proto\"\"\n\014WindowStatus\022\022\n\npercentage\030\001" +
-      " \001(\005\"\036\n\013ResultReply\022\017\n\007message\030\001 \001(\t2\271\001\n" +
-      "\003Car\0229\n\005Close\022\026.google.protobuf.Empty\032\024." +
-      "window.WindowStatus\"\0000\001\022;\n\tgetStatus\022\026.g" +
-      "oogle.protobuf.Empty\032\024.window.WindowStat" +
-      "us\"\000\022:\n\tLockDoors\022\026.google.protobuf.Empt" +
-      "y\032\023.window.ResultReply\"\000B\'\n\031org.mycompan" +
-      "y.example.carB\010CarProtoP\001b\006proto3"
+      "ty.proto\"/\n\014WindowStatus\022\022\n\npercentage\030\001" +
+      " \001(\005\022\013\n\003loc\030\002 \001(\t2\272\001\n\003Car\0229\n\005Close\022\026.goo" +
+      "gle.protobuf.Empty\032\024.window.WindowStatus" +
+      "\"\0000\001\022;\n\tgetStatus\022\026.google.protobuf.Empt" +
+      "y\032\024.window.WindowStatus\"\000\022;\n\tLockDoors\022\026" +
+      ".google.protobuf.Empty\032\024.window.WindowSt" +
+      "atus\"\000B\'\n\031org.mycompany.example.carB\010Car" +
+      "ProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -61,13 +56,7 @@ public final class CarProto {
     internal_static_window_WindowStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_window_WindowStatus_descriptor,
-        new java.lang.String[] { "Percentage", });
-    internal_static_window_ResultReply_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_window_ResultReply_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_window_ResultReply_descriptor,
-        new java.lang.String[] { "Message", });
+        new java.lang.String[] { "Percentage", "Loc", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 
