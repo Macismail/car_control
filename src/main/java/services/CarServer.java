@@ -27,7 +27,7 @@ public class CarServer {
               .addService(new CarImpl())
               .build()
               .start();
-      JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Home", "_window._udp.local.", "", port);
+      JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Car", "_control._up.local.", "", port);
       logger.info("Server started, listening on " + port);
       Runtime.getRuntime().addShutdownHook(new Thread() {
          @Override
@@ -68,7 +68,7 @@ public class CarServer {
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int winlevel = 0;
-      private String lock;
+      private String lock = new String();
 
       public CarImpl() {
          String name = "Car";
@@ -87,11 +87,6 @@ public class CarServer {
       public void getStatus(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
          responseObserver.onNext(WindowStatus.newBuilder().setPercentage(winlevel).build());
-         responseObserver.onCompleted();
-      }
-      
-      public void LockDoors(com.google.protobuf.Empty request, io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
-         responseObserver.onNext(WindowStatus.newBuilder().setLoc(lock).build());
          responseObserver.onCompleted();
       }
       
@@ -114,6 +109,13 @@ public class CarServer {
                this.cancel();
             }
          }
+      }
+      
+      public void LockDoors(com.google.protobuf.Empty request,
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
+         WindowStatus rep = WindowStatus.newBuilder().setLoc(lock).build();
+         responseObserver.onNext(rep);
+         responseObserver.onCompleted();
       }
 
    }

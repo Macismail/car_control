@@ -52,8 +52,7 @@ public class CarClient implements ServiceObserver {
               .usePlaintext(true)
               .build();
       blockingStub = CarGrpc.newBlockingStub(channel);
-      closewindows();
-      lockdrs();
+      carControl();
    }
 
    public boolean interested(String type) {
@@ -71,7 +70,7 @@ public class CarClient implements ServiceObserver {
    /**
     * Close the car windows method.
     */
-   public void closewindows() {
+   public void carControl() {
       try {
 
          new Thread() {
@@ -93,20 +92,18 @@ public class CarClient implements ServiceObserver {
          logger.log(Level.WARNING, "RPC failed", e);
          return;
       }
-
-   }
-   
-   public void lockdrs(){
+      
       try {
          
          Empty request = Empty.newBuilder().build();
          WindowStatus response = blockingStub.lockDoors(request);
-         System.out.println("the "+response);
+         System.out.println("Doors "+response);
          
       } catch (StatusRuntimeException e) {
          logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
          return;
       }
+
    }
 
    public static void main(String[] args) {
