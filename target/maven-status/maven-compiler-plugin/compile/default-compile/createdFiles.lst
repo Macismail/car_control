@@ -13,10 +13,12 @@ io/grpc/examples/strings/RedactRequestOrBuilder.class
 io/grpc/examples/strings/StringsServiceImpl$1.class
 io/grpc/examples/strings/StringRequest.class
 io/grpc/examples/strings/LengthResponse$1.class
+org/mycompany/example/car/CarStatusOrBuilder.class
 client/jmDNSServiceTracker.class
 org/jpdna/grpchello/HelloResponse$1.class
 io/grpc/examples/strings/StringsServiceImpl.class
 org/jpdna/grpchello/HelloWorldServer$1.class
+org/mycompany/example/car/CarStatus$Builder.class
 org/jpdna/grpchello/HelloWorldClient.class
 org/jpdna/grpchello/HelloRequest$1.class
 client/ServiceObserver.class
@@ -24,7 +26,6 @@ org/jpdna/grpchello/HelloResponse.class
 io/grpc/examples/strings/StringResponseOrBuilder.class
 org/mycompany/example/car/CarProto.class
 io/grpc/examples/strings/RedactRequest$1.class
-org/mycompany/example/car/WindowStatusOrBuilder.class
 io/grpc/examples/strings/RedactRequest.class
 org/jpdna/grpchello/HelloRequest.class
 io/grpc/examples/strings/StringRequest$1.class
@@ -33,4 +34,6 @@ io/grpc/examples/strings/StringRequest$Builder.class
 io/grpc/examples/strings/StringResponse$1.class
 org/jpdna/grpchello/HelloRequestOrBuilder.class
 io/grpc/examples/strings/StringResponse$Builder.class
+org/mycompany/example/car/CarStatus.class
 org/jpdna/grpchello/HelloWorldServer$GreeterImpl.class
+org/mycompany/example/car/CarStatus$1.class

@@ -3,8 +3,8 @@
 
 package org.mycompany.example.car;
 
-public interface WindowStatusOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:window.WindowStatus)
+public interface CarStatusOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:car.CarStatus)
     com.google.protobuf.MessageOrBuilder {
 
   /**

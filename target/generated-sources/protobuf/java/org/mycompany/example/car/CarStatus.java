@@ -4,18 +4,18 @@
 package org.mycompany.example.car;
 
 /**
- * Protobuf type {@code window.WindowStatus}
+ * Protobuf type {@code car.CarStatus}
  */
-public  final class WindowStatus extends
+public  final class CarStatus extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:window.WindowStatus)
-    WindowStatusOrBuilder {
+    // @@protoc_insertion_point(message_implements:car.CarStatus)
+    CarStatusOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use WindowStatus.newBuilder() to construct.
-  private WindowStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CarStatus.newBuilder() to construct.
+  private CarStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private WindowStatus() {
+  private CarStatus() {
     percentage_ = 0;
     loc_ = "";
   }
@@ -25,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WindowStatus(
+  private CarStatus(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mycompany.example.car.CarProto.internal_static_window_WindowStatus_descriptor;
+    return org.mycompany.example.car.CarProto.internal_static_car_CarStatus_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mycompany.example.car.CarProto.internal_static_window_WindowStatus_fieldAccessorTable
+    return org.mycompany.example.car.CarProto.internal_static_car_CarStatus_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mycompany.example.car.WindowStatus.class, org.mycompany.example.car.WindowStatus.Builder.class);
+            org.mycompany.example.car.CarStatus.class, org.mycompany.example.car.CarStatus.Builder.class);
   }
 
   public static final int PERCENTAGE_FIELD_NUMBER = 1;
@@ -176,10 +176,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mycompany.example.car.WindowStatus)) {
+    if (!(obj instanceof org.mycompany.example.car.CarStatus)) {
       return super.equals(obj);
     }
-    org.mycompany.example.car.WindowStatus other = (org.mycompany.example.car.WindowStatus) obj;
+    org.mycompany.example.car.CarStatus other = (org.mycompany.example.car.CarStatus) obj;
 
     boolean result = true;
     result = result && (getPercentage()
@@ -206,69 +206,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(byte[] data)
+  public static org.mycompany.example.car.CarStatus parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(java.io.InputStream input)
+  public static org.mycompany.example.car.CarStatus parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mycompany.example.car.WindowStatus parseDelimitedFrom(java.io.InputStream input)
+  public static org.mycompany.example.car.CarStatus parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.WindowStatus parseDelimitedFrom(
+  public static org.mycompany.example.car.CarStatus parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mycompany.example.car.WindowStatus parseFrom(
+  public static org.mycompany.example.car.CarStatus parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -281,7 +281,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mycompany.example.car.WindowStatus prototype) {
+  public static Builder newBuilder(org.mycompany.example.car.CarStatus prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -297,26 +297,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code window.WindowStatus}
+   * Protobuf type {@code car.CarStatus}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:window.WindowStatus)
-      org.mycompany.example.car.WindowStatusOrBuilder {
+      // @@protoc_insertion_point(builder_implements:car.CarStatus)
+      org.mycompany.example.car.CarStatusOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mycompany.example.car.CarProto.internal_static_window_WindowStatus_descriptor;
+      return org.mycompany.example.car.CarProto.internal_static_car_CarStatus_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mycompany.example.car.CarProto.internal_static_window_WindowStatus_fieldAccessorTable
+      return org.mycompany.example.car.CarProto.internal_static_car_CarStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mycompany.example.car.WindowStatus.class, org.mycompany.example.car.WindowStatus.Builder.class);
+              org.mycompany.example.car.CarStatus.class, org.mycompany.example.car.CarStatus.Builder.class);
     }
 
-    // Construct using org.mycompany.example.car.WindowStatus.newBuilder()
+    // Construct using org.mycompany.example.car.CarStatus.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -344,17 +344,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mycompany.example.car.CarProto.internal_static_window_WindowStatus_descriptor;
+      return org.mycompany.example.car.CarProto.internal_static_car_CarStatus_descriptor;
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.WindowStatus getDefaultInstanceForType() {
-      return org.mycompany.example.car.WindowStatus.getDefaultInstance();
+    public org.mycompany.example.car.CarStatus getDefaultInstanceForType() {
+      return org.mycompany.example.car.CarStatus.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.WindowStatus build() {
-      org.mycompany.example.car.WindowStatus result = buildPartial();
+    public org.mycompany.example.car.CarStatus build() {
+      org.mycompany.example.car.CarStatus result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -362,8 +362,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mycompany.example.car.WindowStatus buildPartial() {
-      org.mycompany.example.car.WindowStatus result = new org.mycompany.example.car.WindowStatus(this);
+    public org.mycompany.example.car.CarStatus buildPartial() {
+      org.mycompany.example.car.CarStatus result = new org.mycompany.example.car.CarStatus(this);
       result.percentage_ = percentage_;
       result.loc_ = loc_;
       onBuilt();
@@ -404,16 +404,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mycompany.example.car.WindowStatus) {
-        return mergeFrom((org.mycompany.example.car.WindowStatus)other);
+      if (other instanceof org.mycompany.example.car.CarStatus) {
+        return mergeFrom((org.mycompany.example.car.CarStatus)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mycompany.example.car.WindowStatus other) {
-      if (other == org.mycompany.example.car.WindowStatus.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.mycompany.example.car.CarStatus other) {
+      if (other == org.mycompany.example.car.CarStatus.getDefaultInstance()) return this;
       if (other.getPercentage() != 0) {
         setPercentage(other.getPercentage());
       }
@@ -436,11 +436,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mycompany.example.car.WindowStatus parsedMessage = null;
+      org.mycompany.example.car.CarStatus parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mycompany.example.car.WindowStatus) e.getUnfinishedMessage();
+        parsedMessage = (org.mycompany.example.car.CarStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -557,41 +557,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:window.WindowStatus)
+    // @@protoc_insertion_point(builder_scope:car.CarStatus)
   }
 
-  // @@protoc_insertion_point(class_scope:window.WindowStatus)
-  private static final org.mycompany.example.car.WindowStatus DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:car.CarStatus)
+  private static final org.mycompany.example.car.CarStatus DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mycompany.example.car.WindowStatus();
+    DEFAULT_INSTANCE = new org.mycompany.example.car.CarStatus();
   }
 
-  public static org.mycompany.example.car.WindowStatus getDefaultInstance() {
+  public static org.mycompany.example.car.CarStatus getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<WindowStatus>
-      PARSER = new com.google.protobuf.AbstractParser<WindowStatus>() {
+  private static final com.google.protobuf.Parser<CarStatus>
+      PARSER = new com.google.protobuf.AbstractParser<CarStatus>() {
     @java.lang.Override
-    public WindowStatus parsePartialFrom(
+    public CarStatus parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WindowStatus(input, extensionRegistry);
+      return new CarStatus(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<WindowStatus> parser() {
+  public static com.google.protobuf.Parser<CarStatus> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<WindowStatus> getParserForType() {
+  public com.google.protobuf.Parser<CarStatus> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mycompany.example.car.WindowStatus getDefaultInstanceForType() {
+  public org.mycompany.example.car.CarStatus getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

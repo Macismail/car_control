@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
-import org.mycompany.example.car.WindowStatus;
+import org.mycompany.example.car.CarStatus;
 
 public class CarClient implements ServiceObserver {
 
@@ -77,7 +77,7 @@ public class CarClient implements ServiceObserver {
             public void run() {
                Empty request = Empty.newBuilder().build();
 
-               Iterator<WindowStatus> response = blockingStub.close(request);
+               Iterator<CarStatus> response = blockingStub.close(request);
                while (response.hasNext()) {
                   System.out.println(response.next().toString());
                }
@@ -85,11 +85,22 @@ public class CarClient implements ServiceObserver {
          }.start();
 
          Empty request = Empty.newBuilder().build();
-         WindowStatus status = blockingStub.getStatus(request);
+         CarStatus status = blockingStub.getStatus(request);
          System.out.println("Closing windows " + status);
 
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);
+         return;
+      }
+      
+      try {
+         
+         Empty request = Empty.newBuilder().build();
+         CarStatus response = blockingStub.lockDoors(request);
+         System.out.println("Doors "+response);
+         
+      } catch (StatusRuntimeException e) {
+         logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
          return;
       }
 

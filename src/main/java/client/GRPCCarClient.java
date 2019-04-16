@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
-import org.mycompany.example.car.WindowStatus;
+import org.mycompany.example.car.CarStatus;
 
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.

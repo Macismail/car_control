@@ -9,7 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
-import org.mycompany.example.car.WindowStatus;
+import org.mycompany.example.car.CarStatus;
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.
@@ -56,45 +56,34 @@ public class CarServer {
       }
    }
 
-   /**
-    * Main launches the server from the command line.
-    */
-   public static void main(String[] args) throws Exception {
-      final CarServer server = new CarServer();
-      server.start();
-      server.blockUntilShutdown();
-   }
-
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int winlevel = 0;
-      private String lock = new String();
 
       public CarImpl() {
          String name = "Car";
-         String serviceType = "_windows._up.local.";
-         lock = "Locked !!!";
+         String serviceType = "_control._up.local.";
       }
 
       @Override
       public void close(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
          Timer t = new Timer();
          t.schedule(new RemindTask(responseObserver), 0, 2000);
       }
 
       @Override
       public void getStatus(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
-         responseObserver.onNext(WindowStatus.newBuilder().setPercentage(winlevel).build());
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
+         responseObserver.onNext(CarStatus.newBuilder().setPercentage(winlevel).build());
          responseObserver.onCompleted();
       }
       
       class RemindTask extends TimerTask {
 
-         StreamObserver<WindowStatus> stmOb;
+         StreamObserver<CarStatus> stmOb;
 
-         public RemindTask(StreamObserver<WindowStatus> j) {
+         public RemindTask(StreamObserver<CarStatus> j) {
             stmOb = j;
          }
 
@@ -102,7 +91,7 @@ public class CarServer {
          public void run() {
             if (winlevel < 100) {
                winlevel += 10;
-               WindowStatus status = WindowStatus.newBuilder().setPercentage(winlevel).build();
+               CarStatus status = CarStatus.newBuilder().setPercentage(winlevel).build();
                stmOb.onNext(status);
             } else {
                stmOb.onCompleted();
@@ -112,11 +101,21 @@ public class CarServer {
       }
       
       public void LockDoors(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowStatus> responseObserver) {
-         WindowStatus rep = WindowStatus.newBuilder().setLoc(lock).build();
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
+         CarStatus rep = CarStatus.newBuilder().setLoc("Locked !!!").build();
          responseObserver.onNext(rep);
          responseObserver.onCompleted();
       }
 
    }
+   
+   /**
+    * Main launches the server from the command line.
+    */
+   public static void main(String[] args) throws Exception {
+      final CarServer server = new CarServer();
+      server.start();
+      server.blockUntilShutdown();
+   }
+   
 }

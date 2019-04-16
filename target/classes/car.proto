@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-package window;
+package car;
 
 option java_multiple_files = true;
 option java_package = "org.mycompany.example.car";
@@ -11,13 +11,13 @@ option java_outer_classname = "CarProto";
 // The greeting service definition.
 service Car {
 
-    rpc Close(google.protobuf.Empty) returns (stream WindowStatus) {}
-    rpc getStatus(google.protobuf.Empty) returns (WindowStatus) {}
-    rpc LockDoors(google.protobuf.Empty) returns (WindowStatus) {}
+    rpc Close(google.protobuf.Empty) returns (stream CarStatus) {}
+    rpc getStatus(google.protobuf.Empty) returns (CarStatus) {}
+    rpc LockDoors(google.protobuf.Empty) returns (CarStatus) {}
 
 }
 
-message WindowStatus {
+message CarStatus {
   int32 percentage = 1;
   string loc = 2;
 }
