@@ -19,6 +19,11 @@ public final class CarProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_car_CarStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_car_DrsStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_car_DrsStatus_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,13 +34,14 @@ public final class CarProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\tcar.proto\022\003car\032\033google/protobuf/empty." +
-      "proto\",\n\tCarStatus\022\022\n\npercentage\030\001 \001(\005\022\013" +
-      "\n\003loc\030\002 \001(\t2\250\001\n\003Car\0223\n\005Close\022\026.google.pr" +
-      "otobuf.Empty\032\016.car.CarStatus\"\0000\001\0225\n\tgetS" +
-      "tatus\022\026.google.protobuf.Empty\032\016.car.CarS" +
-      "tatus\"\000\0225\n\tLockDoors\022\026.google.protobuf.E" +
-      "mpty\032\016.car.CarStatus\"\000B\'\n\031org.mycompany." +
-      "example.carB\010CarProtoP\001b\006proto3"
+      "proto\"\037\n\tCarStatus\022\022\n\npercentage\030\001 \001(\005\"\031" +
+      "\n\tDrsStatus\022\014\n\004lock\030\001 \001(\t2\250\001\n\003Car\0223\n\005clo" +
+      "se\022\026.google.protobuf.Empty\032\016.car.CarStat" +
+      "us\"\0000\001\0225\n\tgetStatus\022\026.google.protobuf.Em" +
+      "pty\032\016.car.CarStatus\"\000\0225\n\tlockDoors\022\026.goo" +
+      "gle.protobuf.Empty\032\016.car.DrsStatus\"\000B\'\n\031" +
+      "org.mycompany.example.carB\010CarProtoP\001b\006p" +
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -55,7 +61,13 @@ public final class CarProto {
     internal_static_car_CarStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_car_CarStatus_descriptor,
-        new java.lang.String[] { "Percentage", "Loc", });
+        new java.lang.String[] { "Percentage", });
+    internal_static_car_DrsStatus_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_car_DrsStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_car_DrsStatus_descriptor,
+        new java.lang.String[] { "Lock", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

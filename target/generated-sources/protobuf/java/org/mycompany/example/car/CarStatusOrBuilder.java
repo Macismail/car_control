@@ -11,14 +11,4 @@ public interface CarStatusOrBuilder extends
    * <code>int32 percentage = 1;</code>
    */
   int getPercentage();
-
-  /**
-   * <code>string loc = 2;</code>
-   */
-  java.lang.String getLoc();
-  /**
-   * <code>string loc = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getLocBytes();
 }

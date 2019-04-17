@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private CarStatus() {
     percentage_ = 0;
-    loc_ = "";
   }
 
   @java.lang.Override
@@ -47,12 +46,6 @@ private static final long serialVersionUID = 0L;
           case 8: {
 
             percentage_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            loc_ = s;
             break;
           }
           default: {
@@ -96,40 +89,6 @@ private static final long serialVersionUID = 0L;
     return percentage_;
   }
 
-  public static final int LOC_FIELD_NUMBER = 2;
-  private volatile java.lang.Object loc_;
-  /**
-   * <code>string loc = 2;</code>
-   */
-  public java.lang.String getLoc() {
-    java.lang.Object ref = loc_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      loc_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string loc = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getLocBytes() {
-    java.lang.Object ref = loc_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      loc_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -147,9 +106,6 @@ private static final long serialVersionUID = 0L;
     if (percentage_ != 0) {
       output.writeInt32(1, percentage_);
     }
-    if (!getLocBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, loc_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -162,9 +118,6 @@ private static final long serialVersionUID = 0L;
     if (percentage_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, percentage_);
-    }
-    if (!getLocBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, loc_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -184,8 +137,6 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && (getPercentage()
         == other.getPercentage());
-    result = result && getLoc()
-        .equals(other.getLoc());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -199,8 +150,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PERCENTAGE_FIELD_NUMBER;
     hash = (53 * hash) + getPercentage();
-    hash = (37 * hash) + LOC_FIELD_NUMBER;
-    hash = (53 * hash) + getLoc().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -336,8 +285,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       percentage_ = 0;
 
-      loc_ = "";
-
       return this;
     }
 
@@ -365,7 +312,6 @@ private static final long serialVersionUID = 0L;
     public org.mycompany.example.car.CarStatus buildPartial() {
       org.mycompany.example.car.CarStatus result = new org.mycompany.example.car.CarStatus(this);
       result.percentage_ = percentage_;
-      result.loc_ = loc_;
       onBuilt();
       return result;
     }
@@ -416,10 +362,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.mycompany.example.car.CarStatus.getDefaultInstance()) return this;
       if (other.getPercentage() != 0) {
         setPercentage(other.getPercentage());
-      }
-      if (!other.getLoc().isEmpty()) {
-        loc_ = other.loc_;
-        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -472,75 +414,6 @@ private static final long serialVersionUID = 0L;
     public Builder clearPercentage() {
       
       percentage_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object loc_ = "";
-    /**
-     * <code>string loc = 2;</code>
-     */
-    public java.lang.String getLoc() {
-      java.lang.Object ref = loc_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        loc_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string loc = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLocBytes() {
-      java.lang.Object ref = loc_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        loc_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string loc = 2;</code>
-     */
-    public Builder setLoc(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      loc_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string loc = 2;</code>
-     */
-    public Builder clearLoc() {
-      
-      loc_ = getDefaultInstance().getLoc();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string loc = 2;</code>
-     */
-    public Builder setLocBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      loc_ = value;
       onChanged();
       return this;
     }

@@ -10,6 +10,7 @@ import java.util.TimerTask;
 import java.util.logging.Logger;
 import org.mycompany.example.car.CarGrpc;
 import org.mycompany.example.car.CarStatus;
+import org.mycompany.example.car.DrsStatus;
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.
@@ -27,7 +28,7 @@ public class CarServer {
               .addService(new CarImpl())
               .build()
               .start();
-      JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Car", "_control._up.local.", "", port);
+      JmDNSRegistrationHelper helper = new JmDNSRegistrationHelper("Car", "_car_udp.local.", "", port);
       logger.info("Server started, listening on " + port);
       Runtime.getRuntime().addShutdownHook(new Thread() {
          @Override
@@ -55,27 +56,44 @@ public class CarServer {
          server.awaitTermination();
       }
    }
+   
+    /**
+    * Main launches the server from the command line.
+    */
+   public static void main(String[] args) throws Exception {
+      final CarServer server = new CarServer();
+      server.start();
+      server.blockUntilShutdown();
+   }
 
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int winlevel = 0;
+      private String locked = "Locked!!!";
 
       public CarImpl() {
          String name = "Car";
-         String serviceType = "_control._up.local.";
+         String serviceType = "_car_udp.local.";
       }
-
+      
       @Override
       public void close(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
          Timer t = new Timer();
-         t.schedule(new RemindTask(responseObserver), 0, 2000);
+         t.schedule(new RemindTask(responseObserver), 0, 1000);
       }
 
       @Override
       public void getStatus(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
          responseObserver.onNext(CarStatus.newBuilder().setPercentage(winlevel).build());
+         responseObserver.onCompleted();
+      }
+      
+      public void LockDoors(com.google.protobuf.Empty request, 
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.DrsStatus> responseObserver) {
+         DrsStatus resp = DrsStatus.newBuilder().setLock(locked).build();
+         responseObserver.onNext(resp);
          responseObserver.onCompleted();
       }
       
@@ -89,6 +107,7 @@ public class CarServer {
 
          @Override
          public void run() {
+            
             if (winlevel < 100) {
                winlevel += 10;
                CarStatus status = CarStatus.newBuilder().setPercentage(winlevel).build();
@@ -99,23 +118,7 @@ public class CarServer {
             }
          }
       }
-      
-      public void LockDoors(com.google.protobuf.Empty request,
-              io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
-         CarStatus rep = CarStatus.newBuilder().setLoc("Locked !!!").build();
-         responseObserver.onNext(rep);
-         responseObserver.onCompleted();
-      }
 
-   }
-   
-   /**
-    * Main launches the server from the command line.
-    */
-   public static void main(String[] args) throws Exception {
-      final CarServer server = new CarServer();
-      server.start();
-      server.blockUntilShutdown();
    }
    
 }
