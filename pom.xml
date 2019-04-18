@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jpdna.grpchello</groupId>
-    <artifactId>carGrpc</artifactId>
+    <artifactId>car_control</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>carGrpc</name>
+    <name>car_control</name>
     <url>http://maven.apache.org</url>
 
 
@@ -45,7 +45,12 @@
             <artifactId>grpc-stub</artifactId>
             <version>1.19.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
   
     <build>
@@ -53,7 +58,7 @@
             <extension>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
-                <version>1.6.2</version>
+                <version>1.6.1</version>
             </extension>
         </extensions>
         <plugins>

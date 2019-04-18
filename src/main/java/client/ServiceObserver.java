@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author
+ * @author smail
  */
 public interface ServiceObserver {
 
