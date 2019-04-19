@@ -1,0 +1,7 @@
+client
+io.grpc.examples.strings
+org.dominic.example.car
+org.dominic.example.recommender
+org.jpdna.grpchello
+org.mycompany.example.recommender
+services

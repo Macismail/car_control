@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package car;
+
+option java_multiple_files = true;
+option java_package = "org.mycompany.example.car";
+option java_outer_classname = "CarProto";
+
+// The car control service definition.
+service Car {
+    rpc closeWindows(google.protobuf.Empty) returns (stream WindowsStatus) {}
+    rpc getStatus(google.protobuf.Empty) returns (WindowsStatus) {}
+    rpc lockDoors(google.protobuf.Empty) returns (DrsStatus) {}
+    rpc switchAlarm(google.protobuf.Empty) returns (AlarmStatus) {}
+}
+
+message WindowsStatus {
+  int32 percentageHeated = 1;
+}
+
+message DrsStatus {
+    string lock = 1;
+}
+
+message AlarmStatus {
+    string alarm = 1;
+}
