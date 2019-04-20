@@ -63,38 +63,6 @@ public final class CarGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.mycompany.example.car.WindowsStatus> getGetStatusMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "getStatus",
-      requestType = com.google.protobuf.Empty.class,
-      responseType = org.mycompany.example.car.WindowsStatus.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      org.mycompany.example.car.WindowsStatus> getGetStatusMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.mycompany.example.car.WindowsStatus> getGetStatusMethod;
-    if ((getGetStatusMethod = CarGrpc.getGetStatusMethod) == null) {
-      synchronized (CarGrpc.class) {
-        if ((getGetStatusMethod = CarGrpc.getGetStatusMethod) == null) {
-          CarGrpc.getGetStatusMethod = getGetStatusMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.mycompany.example.car.WindowsStatus>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "car.Car", "getStatus"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.mycompany.example.car.WindowsStatus.getDefaultInstance()))
-                  .setSchemaDescriptor(new CarMethodDescriptorSupplier("getStatus"))
-                  .build();
-          }
-        }
-     }
-     return getGetStatusMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       org.mycompany.example.car.DrsStatus> getLockDoorsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -197,13 +165,6 @@ public final class CarGrpc {
 
     /**
      */
-    public void getStatus(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowsStatus> responseObserver) {
-      asyncUnimplementedUnaryCall(getGetStatusMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void lockDoors(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<org.mycompany.example.car.DrsStatus> responseObserver) {
       asyncUnimplementedUnaryCall(getLockDoorsMethod(), responseObserver);
@@ -225,13 +186,6 @@ public final class CarGrpc {
                 com.google.protobuf.Empty,
                 org.mycompany.example.car.WindowsStatus>(
                   this, METHODID_CLOSE_WINDOWS)))
-          .addMethod(
-            getGetStatusMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.google.protobuf.Empty,
-                org.mycompany.example.car.WindowsStatus>(
-                  this, METHODID_GET_STATUS)))
           .addMethod(
             getLockDoorsMethod(),
             asyncUnaryCall(
@@ -277,14 +231,6 @@ public final class CarGrpc {
         io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowsStatus> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getCloseWindowsMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void getStatus(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowsStatus> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getGetStatusMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -335,13 +281,6 @@ public final class CarGrpc {
 
     /**
      */
-    public org.mycompany.example.car.WindowsStatus getStatus(com.google.protobuf.Empty request) {
-      return blockingUnaryCall(
-          getChannel(), getGetStatusMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public org.mycompany.example.car.DrsStatus lockDoors(com.google.protobuf.Empty request) {
       return blockingUnaryCall(
           getChannel(), getLockDoorsMethod(), getCallOptions(), request);
@@ -378,14 +317,6 @@ public final class CarGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.WindowsStatus> getStatus(
-        com.google.protobuf.Empty request) {
-      return futureUnaryCall(
-          getChannel().newCall(getGetStatusMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.DrsStatus> lockDoors(
         com.google.protobuf.Empty request) {
       return futureUnaryCall(
@@ -402,9 +333,8 @@ public final class CarGrpc {
   }
 
   private static final int METHODID_CLOSE_WINDOWS = 0;
-  private static final int METHODID_GET_STATUS = 1;
-  private static final int METHODID_LOCK_DOORS = 2;
-  private static final int METHODID_SWITCH_ALARM = 3;
+  private static final int METHODID_LOCK_DOORS = 1;
+  private static final int METHODID_SWITCH_ALARM = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -425,10 +355,6 @@ public final class CarGrpc {
       switch (methodId) {
         case METHODID_CLOSE_WINDOWS:
           serviceImpl.closeWindows((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowsStatus>) responseObserver);
-          break;
-        case METHODID_GET_STATUS:
-          serviceImpl.getStatus((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.mycompany.example.car.WindowsStatus>) responseObserver);
           break;
         case METHODID_LOCK_DOORS:
@@ -501,7 +427,6 @@ public final class CarGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CarFileDescriptorSupplier())
               .addMethod(getCloseWindowsMethod())
-              .addMethod(getGetStatusMethod())
               .addMethod(getLockDoorsMethod())
               .addMethod(getSwitchAlarmMethod())
               .build();

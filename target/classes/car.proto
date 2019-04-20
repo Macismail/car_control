@@ -11,13 +11,14 @@ option java_outer_classname = "CarProto";
 // The car control service definition.
 service Car {
     rpc closeWindows(google.protobuf.Empty) returns (stream WindowsStatus) {}
-    rpc getStatus(google.protobuf.Empty) returns (WindowsStatus) {}
+
     rpc lockDoors(google.protobuf.Empty) returns (DrsStatus) {}
+
     rpc switchAlarm(google.protobuf.Empty) returns (AlarmStatus) {}
 }
 
 message WindowsStatus {
-  int32 percentageHeated = 1;
+  int32 percentage = 1;
 }
 
 message DrsStatus {

@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private WindowsStatus() {
-    percentageHeated_ = 0;
+    percentage_ = 0;
   }
 
   @java.lang.Override
@@ -45,7 +45,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            percentageHeated_ = input.readInt32();
+            percentage_ = input.readInt32();
             break;
           }
           default: {
@@ -80,13 +80,13 @@ private static final long serialVersionUID = 0L;
             org.mycompany.example.car.WindowsStatus.class, org.mycompany.example.car.WindowsStatus.Builder.class);
   }
 
-  public static final int PERCENTAGEHEATED_FIELD_NUMBER = 1;
-  private int percentageHeated_;
+  public static final int PERCENTAGE_FIELD_NUMBER = 1;
+  private int percentage_;
   /**
-   * <code>int32 percentageHeated = 1;</code>
+   * <code>int32 percentage = 1;</code>
    */
-  public int getPercentageHeated() {
-    return percentageHeated_;
+  public int getPercentage() {
+    return percentage_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (percentageHeated_ != 0) {
-      output.writeInt32(1, percentageHeated_);
+    if (percentage_ != 0) {
+      output.writeInt32(1, percentage_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (percentageHeated_ != 0) {
+    if (percentage_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, percentageHeated_);
+        .computeInt32Size(1, percentage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,8 +135,8 @@ private static final long serialVersionUID = 0L;
     org.mycompany.example.car.WindowsStatus other = (org.mycompany.example.car.WindowsStatus) obj;
 
     boolean result = true;
-    result = result && (getPercentageHeated()
-        == other.getPercentageHeated());
+    result = result && (getPercentage()
+        == other.getPercentage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,8 +148,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PERCENTAGEHEATED_FIELD_NUMBER;
-    hash = (53 * hash) + getPercentageHeated();
+    hash = (37 * hash) + PERCENTAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getPercentage();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -283,7 +283,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      percentageHeated_ = 0;
+      percentage_ = 0;
 
       return this;
     }
@@ -311,7 +311,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mycompany.example.car.WindowsStatus buildPartial() {
       org.mycompany.example.car.WindowsStatus result = new org.mycompany.example.car.WindowsStatus(this);
-      result.percentageHeated_ = percentageHeated_;
+      result.percentage_ = percentage_;
       onBuilt();
       return result;
     }
@@ -360,8 +360,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mycompany.example.car.WindowsStatus other) {
       if (other == org.mycompany.example.car.WindowsStatus.getDefaultInstance()) return this;
-      if (other.getPercentageHeated() != 0) {
-        setPercentageHeated(other.getPercentageHeated());
+      if (other.getPercentage() != 0) {
+        setPercentage(other.getPercentage());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -392,28 +392,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int percentageHeated_ ;
+    private int percentage_ ;
     /**
-     * <code>int32 percentageHeated = 1;</code>
+     * <code>int32 percentage = 1;</code>
      */
-    public int getPercentageHeated() {
-      return percentageHeated_;
+    public int getPercentage() {
+      return percentage_;
     }
     /**
-     * <code>int32 percentageHeated = 1;</code>
+     * <code>int32 percentage = 1;</code>
      */
-    public Builder setPercentageHeated(int value) {
+    public Builder setPercentage(int value) {
       
-      percentageHeated_ = value;
+      percentage_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 percentageHeated = 1;</code>
+     * <code>int32 percentage = 1;</code>
      */
-    public Builder clearPercentageHeated() {
+    public Builder clearPercentage() {
       
-      percentageHeated_ = 0;
+      percentage_ = 0;
       onChanged();
       return this;
     }

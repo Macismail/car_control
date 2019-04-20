@@ -25,7 +25,7 @@ public class CarClient implements ServiceObserver {
    private CarGrpc.CarBlockingStub blockingStub;
 
    /**
-    * Constructor.
+    * Car Client Constructor.
     */
    public CarClient() {
       serviceType = "_car._udp.local.";
@@ -34,36 +34,36 @@ public class CarClient implements ServiceObserver {
       clientManager.register(this);
 
       serviceAdded(new ServiceDescription("localhost", 50021));
+      
    }
 
    String getServiceType() {
       return serviceType;
    }
 
-   void disable() {
-      // no services exist for this client type
-   }
-
+   @Override
    public List<String> serviceInterests() {
       List<String> interests = new ArrayList<String>();
       interests.add(serviceType);
       return interests;
    }
 
+   @Override
    public void serviceAdded(ServiceDescription service) {
-      System.out.println("service added");
+      logger.info("Start Car Control Service: ");
       current = service;
       channel = ManagedChannelBuilder.forAddress(service.getAddress(), service.getPort())
               .usePlaintext(true)
               .build();
       blockingStub = CarGrpc.newBlockingStub(channel);
-      warm();
    }
 
+   @Override
    public boolean interested(String type) {
       return serviceType.equals(type);
    }
 
+   @Override
    public String getName() {
       return name;
    }
@@ -72,54 +72,64 @@ public class CarClient implements ServiceObserver {
       channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
    }
 
-   /**
-    * Say hello to server.
-    */
-   public void warm() {
+   // car control windows contact the car server and get response back
+   public void winControl() {
       try {
-
          new Thread() {
             public void run() {
                Empty request = Empty.newBuilder().build();
 
                Iterator<WindowsStatus> response = blockingStub.closeWindows(request);
                while (response.hasNext()) {
-                  System.out.println("Windows level " +response.next().getPercentageHeated()+" %");
+                  int i = response.next().getPercentage();
+                  System.out.println("Windows levels: " +i+"%");
+                  if (i == 100) {
+                     System.out.println("All Windows Locked !!!");
+                  }
                }
             }
-         }.start();
+         }.run();
 
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);
          return;
       }
-      
+   }
+   
+   // car doors control contact the car server and get response back
+   public void drControl(){
       try {
-         
-         Empty request = Empty.newBuilder().build();
-         DrsStatus status = blockingStub.lockDoors(request);
+         Empty req1 = Empty.newBuilder().build();
+         DrsStatus status = blockingStub.lockDoors(req1);
          System.out.println("Doors " + status.getLock());
-         
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);
          return;
       }
-      
+   }
+   
+   // car Alarm control contact the car server and get response back
+   public void alControl(){
       try {
-         
-         Empty request = Empty.newBuilder().build();
-         AlarmStatus status = blockingStub.switchAlarm(request);
+         Empty req2 = Empty.newBuilder().build();
+         AlarmStatus status = blockingStub.switchAlarm(req2);
          System.out.println("Alarm " + status.getAlarm());
-         
       } catch (RuntimeException e) {
          logger.log(Level.WARNING, "RPC failed", e);
          return;
       }
-
    }
 
-   public static void main(String[] args) {
-      new CarClient();
+   public static void main(String[] args) throws InterruptedException {
+      CarClient client = new CarClient();
+      try{
+         client.winControl();
+         client.drControl();
+         client.alControl();
+         
+      }finally{
+         client.shutdown();
+      }
    }
 
 }

@@ -8,7 +8,7 @@ public interface WindowsStatusOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 percentageHeated = 1;</code>
+   * <code>int32 percentage = 1;</code>
    */
-  int getPercentageHeated();
+  int getPercentage();
 }

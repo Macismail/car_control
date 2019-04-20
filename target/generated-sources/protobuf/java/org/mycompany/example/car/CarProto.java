@@ -39,16 +39,15 @@ public final class CarProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\tcar.proto\022\003car\032\033google/protobuf/empty." +
-      "proto\")\n\rWindowsStatus\022\030\n\020percentageHeat" +
-      "ed\030\001 \001(\005\"\031\n\tDrsStatus\022\014\n\004lock\030\001 \001(\t\"\034\n\013A" +
-      "larmStatus\022\r\n\005alarm\030\001 \001(\t2\362\001\n\003Car\022>\n\014clo" +
-      "seWindows\022\026.google.protobuf.Empty\032\022.car." +
-      "WindowsStatus\"\0000\001\0229\n\tgetStatus\022\026.google." +
-      "protobuf.Empty\032\022.car.WindowsStatus\"\000\0225\n\t" +
-      "lockDoors\022\026.google.protobuf.Empty\032\016.car." +
-      "DrsStatus\"\000\0229\n\013switchAlarm\022\026.google.prot" +
-      "obuf.Empty\032\020.car.AlarmStatus\"\000B\'\n\031org.my" +
-      "company.example.carB\010CarProtoP\001b\006proto3"
+      "proto\"#\n\rWindowsStatus\022\022\n\npercentage\030\001 \001" +
+      "(\005\"\031\n\tDrsStatus\022\014\n\004lock\030\001 \001(\t\"\034\n\013AlarmSt" +
+      "atus\022\r\n\005alarm\030\001 \001(\t2\267\001\n\003Car\022>\n\014closeWind" +
+      "ows\022\026.google.protobuf.Empty\032\022.car.Window" +
+      "sStatus\"\0000\001\0225\n\tlockDoors\022\026.google.protob" +
+      "uf.Empty\032\016.car.DrsStatus\"\000\0229\n\013switchAlar" +
+      "m\022\026.google.protobuf.Empty\032\020.car.AlarmSta" +
+      "tus\"\000B\'\n\031org.mycompany.example.carB\010CarP" +
+      "rotoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -68,7 +67,7 @@ public final class CarProto {
     internal_static_car_WindowsStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_car_WindowsStatus_descriptor,
-        new java.lang.String[] { "PercentageHeated", });
+        new java.lang.String[] { "Percentage", });
     internal_static_car_DrsStatus_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_car_DrsStatus_fieldAccessorTable = new
