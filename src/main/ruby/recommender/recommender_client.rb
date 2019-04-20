@@ -19,7 +19,7 @@ def run_get_recommendations(stub)
   movies << Movie.new(title: "Terminator", genre: "Awesome", director: "James Cameron")
   movies << Movie.new(title: "Predator", genre: "Awesome", director: "James Cameron")
   
-  profile = Profile.new(age: 12, name: "Dominic", seen: movies)
+  profile = Profile.new(age: 12, name: "Daniel", seen: movies)
   resp = stub.recommend_movie(profile)
   resp.movies.each { |i| puts i.title }
 end
