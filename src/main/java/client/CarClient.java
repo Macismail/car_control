@@ -11,6 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.mycompany.example.car.AlarmStatus;
 import org.mycompany.example.car.CarGrpc;
+import org.mycompany.example.car.CarStatus;
+import org.mycompany.example.car.Check;
 import org.mycompany.example.car.WindowsStatus;
 import org.mycompany.example.car.DrsStatus;
 
@@ -34,7 +36,7 @@ public class CarClient implements ServiceObserver {
       clientManager.register(this);
 
       serviceAdded(new ServiceDescription("localhost", 50021));
-      
+      // 54.194.46.140
    }
 
    String getServiceType() {
@@ -82,7 +84,7 @@ public class CarClient implements ServiceObserver {
                Iterator<WindowsStatus> response = blockingStub.closeWindows(request);
                while (response.hasNext()) {
                   int i = response.next().getPercentage();
-                  System.out.println("Windows levels: " +i+"%");
+                  System.out.println("Windows levels: " + i + "%");
                   if (i == 100) {
                      System.out.println("All Windows Locked !!!");
                   }
@@ -95,9 +97,9 @@ public class CarClient implements ServiceObserver {
          return;
       }
    }
-   
+
    // car doors control contact the car server and get response back
-   public void drControl(){
+   public void drControl() {
       try {
          Empty req1 = Empty.newBuilder().build();
          DrsStatus status = blockingStub.lockDoors(req1);
@@ -107,9 +109,9 @@ public class CarClient implements ServiceObserver {
          return;
       }
    }
-   
+
    // car Alarm control contact the car server and get response back
-   public void alControl(){
+   public void alControl() {
       try {
          Empty req2 = Empty.newBuilder().build();
          AlarmStatus status = blockingStub.switchAlarm(req2);
@@ -120,14 +122,35 @@ public class CarClient implements ServiceObserver {
       }
    }
 
+   // car Service Check contact the car server and get response back
+   public void checking() {
+      
+      try {
+         Empty req3 = Empty.newBuilder().build();
+         System.out.println("trying to get the car service checks from the server");
+         CarStatus status = blockingStub.carCheck(req3);
+         List<Check> carChs = status.getChecksList();
+         Check che1 = carChs.get(0);
+         Check che2 = carChs.get(1);
+         Check che3 = carChs.get(2);
+         System.out.println("Petrol level: "+che1.getLevel()+ "%");
+         System.out.println("Oil level: "+che2.getLevel()+ "%");
+         System.out.println("Water level: "+che3.getLevel()+ "%");
+         
+      } catch (RuntimeException e) {
+         logger.log(Level.WARNING, "RPC failed", e);
+         return;
+      }
+   }
+
    public static void main(String[] args) throws InterruptedException {
       CarClient client = new CarClient();
-      try{
+      try {
          client.winControl();
          client.drControl();
          client.alControl();
-         
-      }finally{
+         client.checking();
+      } finally {
          client.shutdown();
       }
    }

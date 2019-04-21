@@ -126,6 +126,38 @@ public final class CarGrpc {
      return getSwitchAlarmMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.mycompany.example.car.CarStatus> getCarCheckMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "carCheck",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = org.mycompany.example.car.CarStatus.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      org.mycompany.example.car.CarStatus> getCarCheckMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.mycompany.example.car.CarStatus> getCarCheckMethod;
+    if ((getCarCheckMethod = CarGrpc.getCarCheckMethod) == null) {
+      synchronized (CarGrpc.class) {
+        if ((getCarCheckMethod = CarGrpc.getCarCheckMethod) == null) {
+          CarGrpc.getCarCheckMethod = getCarCheckMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.mycompany.example.car.CarStatus>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "car.Car", "carCheck"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.mycompany.example.car.CarStatus.getDefaultInstance()))
+                  .setSchemaDescriptor(new CarMethodDescriptorSupplier("carCheck"))
+                  .build();
+          }
+        }
+     }
+     return getCarCheckMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -177,6 +209,13 @@ public final class CarGrpc {
       asyncUnimplementedUnaryCall(getSwitchAlarmMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void carCheck(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
+      asyncUnimplementedUnaryCall(getCarCheckMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -200,6 +239,13 @@ public final class CarGrpc {
                 com.google.protobuf.Empty,
                 org.mycompany.example.car.AlarmStatus>(
                   this, METHODID_SWITCH_ALARM)))
+          .addMethod(
+            getCarCheckMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                org.mycompany.example.car.CarStatus>(
+                  this, METHODID_CAR_CHECK)))
           .build();
     }
   }
@@ -248,6 +294,14 @@ public final class CarGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSwitchAlarmMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void carCheck(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCarCheckMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -292,6 +346,13 @@ public final class CarGrpc {
       return blockingUnaryCall(
           getChannel(), getSwitchAlarmMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public org.mycompany.example.car.CarStatus carCheck(com.google.protobuf.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getCarCheckMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -330,11 +391,20 @@ public final class CarGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSwitchAlarmMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.mycompany.example.car.CarStatus> carCheck(
+        com.google.protobuf.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCarCheckMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CLOSE_WINDOWS = 0;
   private static final int METHODID_LOCK_DOORS = 1;
   private static final int METHODID_SWITCH_ALARM = 2;
+  private static final int METHODID_CAR_CHECK = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -364,6 +434,10 @@ public final class CarGrpc {
         case METHODID_SWITCH_ALARM:
           serviceImpl.switchAlarm((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<org.mycompany.example.car.AlarmStatus>) responseObserver);
+          break;
+        case METHODID_CAR_CHECK:
+          serviceImpl.carCheck((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -429,6 +503,7 @@ public final class CarGrpc {
               .addMethod(getCloseWindowsMethod())
               .addMethod(getLockDoorsMethod())
               .addMethod(getSwitchAlarmMethod())
+              .addMethod(getCarCheckMethod())
               .build();
         }
       }

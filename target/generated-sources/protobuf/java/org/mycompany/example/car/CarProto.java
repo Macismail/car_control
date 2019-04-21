@@ -29,6 +29,16 @@ public final class CarProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_car_AlarmStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_car_CarStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_car_CarStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_car_Check_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_car_Check_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -41,13 +51,16 @@ public final class CarProto {
       "\n\tcar.proto\022\003car\032\033google/protobuf/empty." +
       "proto\"#\n\rWindowsStatus\022\022\n\npercentage\030\001 \001" +
       "(\005\"\031\n\tDrsStatus\022\014\n\004lock\030\001 \001(\t\"\034\n\013AlarmSt" +
-      "atus\022\r\n\005alarm\030\001 \001(\t2\267\001\n\003Car\022>\n\014closeWind" +
-      "ows\022\026.google.protobuf.Empty\032\022.car.Window" +
-      "sStatus\"\0000\001\0225\n\tlockDoors\022\026.google.protob" +
-      "uf.Empty\032\016.car.DrsStatus\"\000\0229\n\013switchAlar" +
-      "m\022\026.google.protobuf.Empty\032\020.car.AlarmSta" +
-      "tus\"\000B\'\n\031org.mycompany.example.carB\010CarP" +
-      "rotoP\001b\006proto3"
+      "atus\022\r\n\005alarm\030\001 \001(\t\"\'\n\tCarStatus\022\032\n\006chec" +
+      "ks\030\001 \003(\0132\n.car.Check\"\026\n\005Check\022\r\n\005level\030\001" +
+      " \001(\0052\355\001\n\003Car\022>\n\014closeWindows\022\026.google.pr" +
+      "otobuf.Empty\032\022.car.WindowsStatus\"\0000\001\0225\n\t" +
+      "lockDoors\022\026.google.protobuf.Empty\032\016.car." +
+      "DrsStatus\"\000\0229\n\013switchAlarm\022\026.google.prot" +
+      "obuf.Empty\032\020.car.AlarmStatus\"\000\0224\n\010carChe" +
+      "ck\022\026.google.protobuf.Empty\032\016.car.CarStat" +
+      "us\"\000B\'\n\031org.mycompany.example.carB\010CarPr" +
+      "otoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -80,6 +93,18 @@ public final class CarProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_car_AlarmStatus_descriptor,
         new java.lang.String[] { "Alarm", });
+    internal_static_car_CarStatus_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_car_CarStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_car_CarStatus_descriptor,
+        new java.lang.String[] { "Checks", });
+    internal_static_car_Check_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_car_Check_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_car_Check_descriptor,
+        new java.lang.String[] { "Level", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

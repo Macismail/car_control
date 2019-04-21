@@ -4,12 +4,16 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 import io.grpc.stub.StreamObserver;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import java.util.logging.Logger;
 import org.mycompany.example.car.AlarmStatus;
 import org.mycompany.example.car.CarGrpc;
+import org.mycompany.example.car.CarStatus;
+import org.mycompany.example.car.Check;
 import org.mycompany.example.car.WindowsStatus;
 import org.mycompany.example.car.DrsStatus;
 
@@ -70,10 +74,18 @@ public class CarServer {
    private class CarImpl extends CarGrpc.CarImplBase {
 
       private int percent = 0;
+      private List<Check> checks;
 
       public CarImpl() {
          String name = "Car";
          String serviceType = "_car._udp.local.";
+         checks = new ArrayList<Check>();
+            Check petrol = Check.newBuilder().setLevel(30).build();
+            Check oil = Check.newBuilder().setLevel(65).build();
+            Check water = Check.newBuilder().setLevel(83).build();
+            checks.add(petrol);
+            checks.add(oil);
+            checks.add(water);
       }
 
       @Override
@@ -115,6 +127,13 @@ public class CarServer {
       public void switchAlarm(com.google.protobuf.Empty request,
               io.grpc.stub.StreamObserver<org.mycompany.example.car.AlarmStatus> responseObserver) {
          responseObserver.onNext(AlarmStatus.newBuilder().setAlarm("Switched On !!!").build());
+         responseObserver.onCompleted();
+      }
+      
+      @Override
+      public void carCheck(com.google.protobuf.Empty request,
+              io.grpc.stub.StreamObserver<org.mycompany.example.car.CarStatus> responseObserver) {
+         responseObserver.onNext(CarStatus.newBuilder().addAllChecks(checks).build());
          responseObserver.onCompleted();
       }
 
