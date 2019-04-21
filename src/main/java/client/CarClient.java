@@ -35,7 +35,7 @@ public class CarClient implements ServiceObserver {
       jmDNSServiceTracker clientManager = jmDNSServiceTracker.getInstance();
       clientManager.register(this);
 
-      serviceAdded(new ServiceDescription("localhost", 50021));
+      serviceAdded(new ServiceDescription("localhost", 50051));
       // 54.194.46.140
    }
 

@@ -25,7 +25,7 @@ public class CarServer {
    private static final Logger logger = Logger.getLogger(CarServer.class.getName());
 
    /* The port on which the server should run */
-   private int port = 50021;
+   private int port = 50051;
    private Server server;
 
    private void start() throws Exception {

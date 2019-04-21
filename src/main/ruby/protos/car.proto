@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package car;
+
+option java_multiple_files = true;
+option java_package = "org.mycompany.example.car";
+option java_outer_classname = "CarProto";
+
+// The car control service definition.
+service Carchecker {
+
+    rpc carCheck(google.protobuf.Empty) returns (CarStatus) {}
+
+}
+
+message CarStatus {
+    repeated Check checks = 1;
+}
+
+message Check {
+    int32 level = 1;
+}
